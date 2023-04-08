@@ -5,6 +5,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using OrderBook.DAL.Model;
+using OrderBook.HttpClients;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddDbContext<OrderBookContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("OrderBookDB")));
+builder.Services.AddHttpClient<IBitstampClient, BitstampClient>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
