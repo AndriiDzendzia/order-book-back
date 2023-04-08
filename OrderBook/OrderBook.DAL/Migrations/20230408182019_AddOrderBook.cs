@@ -23,8 +23,8 @@ namespace OrderBook.DAL.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Timestamp = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CurrencyPair = table.Column<string>(type: "text", nullable: false),
-                    Bids = table.Column<List<Order>>(type: "jsonb", nullable: false),
-                    Asks = table.Column<List<Order>>(type: "jsonb", nullable: false)
+                    Bids = table.Column<IEnumerable<Order>>(type: "jsonb", nullable: false),
+                    Asks = table.Column<IEnumerable<Order>>(type: "jsonb", nullable: false)
                 },
                 constraints: table =>
                 {
