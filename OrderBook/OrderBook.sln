@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.DAL", "OrderBook.DAL\OrderBook.DAL.csproj", "{4333C0A9-6134-4836-8F7B-87C114A570F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.Test", "OrderBook.Test\OrderBook.Test.csproj", "{E8214E5C-F095-4590-B126-9F0291C1C53C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4333C0A9-6134-4836-8F7B-87C114A570F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4333C0A9-6134-4836-8F7B-87C114A570F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4333C0A9-6134-4836-8F7B-87C114A570F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8214E5C-F095-4590-B126-9F0291C1C53C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8214E5C-F095-4590-B126-9F0291C1C53C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8214E5C-F095-4590-B126-9F0291C1C53C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8214E5C-F095-4590-B126-9F0291C1C53C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
