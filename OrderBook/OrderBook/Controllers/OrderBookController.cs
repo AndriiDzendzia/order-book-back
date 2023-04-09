@@ -36,11 +36,11 @@ namespace OrderBook.Controllers
         }
 
         [HttpGet("audit")]
-        [ProducesResponseType(typeof(Result<IEnumerable<AuditDto>>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(Result<IEnumerable<AuditDto>>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Result<IDictionary<string, IEnumerable<DateTime>>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Result<IDictionary<string, IEnumerable<DateTime>>>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Get()
         {
-            Result<IEnumerable<AuditDto>> result = await _mediator.Send(new GetAuditQuery());
+            Result<IDictionary<string, IEnumerable<DateTime>>> result = await _mediator.Send(new GetAuditQuery());
 
             if (result.IsSuccess)
             {
@@ -51,8 +51,8 @@ namespace OrderBook.Controllers
         }
 
         [HttpGet("currency_pair")]
-        [ProducesResponseType(typeof(Result<IEnumerable<AuditDto>>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(Result<IEnumerable<AuditDto>>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Result<IEnumerable<string>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Result<IEnumerable<string>>), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetCurrencyPair()
         {
             Result<IEnumerable<string>> result = await _mediator.Send(new GetCurrencyPairsQuery());

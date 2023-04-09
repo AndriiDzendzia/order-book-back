@@ -9,9 +9,9 @@ using OrderBook.DTOs;
 
 namespace OrderBook.Handlers
 {
-    public class GetAuditQuery : IRequest<Result<IEnumerable<AuditDto>>>
+    public class GetAuditQuery : IRequest<Result<IDictionary<string, IEnumerable<DateTime>>>>
     {
-        public class Handler : IRequestHandler<GetAuditQuery, Result<IEnumerable<AuditDto>>>
+        public class Handler : IRequestHandler<GetAuditQuery, Result<IDictionary<string,IEnumerable<DateTime>>>>
         {
             private readonly OrderBookContext _orderBookContext;
 
@@ -20,19 +20,13 @@ namespace OrderBook.Handlers
                 _orderBookContext = orderBookContext;
             }
 
-            public async Task<Result<IEnumerable<AuditDto>>> Handle(GetAuditQuery request, CancellationToken cancellationToken)
+            public async Task<Result<IDictionary<string, IEnumerable<DateTime>>>> Handle(GetAuditQuery request, CancellationToken cancellationToken)
             {
-                List<AuditDto> result = await _orderBookContext.OrderBooks
+                IDictionary<string, IEnumerable<DateTime>> result = await _orderBookContext.OrderBooks
                     .GroupBy(o => o.CurrencyPair)
-                    .Select(pair =>
-                        new AuditDto
-                        {
-                            CurrencyPair = pair.Key,
-                            Timestamps = pair.Select(o => o.Timestamp),
-                        })
-                    .ToListAsync(cancellationToken);
+                    .ToDictionaryAsync(pair => pair.Key, pair => pair.Select(o => o.Timestamp), cancellationToken);
 
-                return Result.Success(result.AsEnumerable());
+                return Result.Success(result);
             }
         }
     }

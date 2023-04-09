@@ -25,7 +25,7 @@ namespace OrderBook.Handlers
 
             public async Task<Result<OrderBookDto>> Handle(GetOrderBookQuery request, CancellationToken cancellationToken)
             {
-                Result<DAL.Model.OrderBook>? orderBookResult = null;
+                Result<DAL.Model.OrderBook> orderBookResult;
                 if (request.Timestamp.HasValue)
                 {
                     orderBookResult = await _mediator.Send(
