@@ -23,6 +23,12 @@ namespace OrderBook.Handlers
             public async Task<Result<IDictionary<string, IEnumerable<DateTime>>>> Handle(GetAuditQuery request, CancellationToken cancellationToken)
             {
                 IDictionary<string, IEnumerable<DateTime>> result = await _orderBookContext.OrderBooks
+                    .Select(o =>
+                        new
+                        {
+                            o.CurrencyPair,
+                            o.Timestamp,
+                        })
                     .GroupBy(o => o.CurrencyPair)
                     .ToDictionaryAsync(pair => pair.Key, pair => pair.Select(o => o.Timestamp), cancellationToken);
 
