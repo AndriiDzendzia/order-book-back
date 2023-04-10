@@ -1,0 +1,3 @@
+[submodule "order-book-front"]
+	path = order-book-front
+	url = https://github.com/AndriiDzendzia/order-book-front
