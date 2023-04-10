@@ -50,8 +50,8 @@ namespace OrderBook.Handlers
                     return Result<OrderBookDto>.Failure(orderBookResult.ErrorMessage, orderBookResult.ErrorMessage);
                 }
 
-                orderBookResult.Data!.Asks = orderBookResult.Data.Asks.OrderBy(a => a.Price).Take(request.Limit!.Value);
-                orderBookResult.Data!.Bids = orderBookResult.Data.Bids.OrderByDescending(b => b.Price).Take(request.Limit!.Value);
+                orderBookResult.Data!.Asks = orderBookResult.Data.Asks.Prepare(request.Limit!.Value);
+                orderBookResult.Data!.Bids = orderBookResult.Data.Bids.Prepare(request.Limit!.Value).OrderByDescending(o => o.Price);
 
                 return Result.Success(orderBookResult.Data!.ToDto());
             }
