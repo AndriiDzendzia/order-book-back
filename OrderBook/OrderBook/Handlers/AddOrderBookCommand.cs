@@ -37,7 +37,7 @@ namespace OrderBook.Handlers
                 {
                     Asks = result.Data!.Asks.Select(ask => new Order(ask)).ToList(),
                     Bids = result.Data!.Bids.Select(bid => new Order(bid)).ToList(),
-                    Timestamp = DateTime.UtcNow,
+                    Timestamp = DateTimeOffset.FromUnixTimeSeconds(long.Parse(result.Data.Timestamp)).DateTime.ToUniversalTime(),
                     CurrencyPair = request.CurrencyPair!,
                 };
 

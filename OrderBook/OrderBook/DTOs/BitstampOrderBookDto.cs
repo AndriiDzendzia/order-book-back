@@ -9,5 +9,7 @@ namespace OrderBook.DTOs
         public IEnumerable<IEnumerable<string>> Asks { get; set; } = null!;
 
         public IEnumerable<IEnumerable<string>> Bids { get; set; } = null!;
+
+        public string Timestamp { get; set; } = null!;
     }
 }
