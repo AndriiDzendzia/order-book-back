@@ -14,6 +14,8 @@ namespace OrderBook.Handlers
 
         public string? CurrencyPair { get; set; } = "btceur";
 
+        public int? Limit { get; set; } = 50;
+
         public class Handler : IRequestHandler<GetOrderBookQuery, Result<OrderBookDto>>
         {
             private readonly IMediator _mediator;
@@ -47,6 +49,9 @@ namespace OrderBook.Handlers
                 {
                     return Result<OrderBookDto>.Failure(orderBookResult.ErrorMessage, orderBookResult.ErrorMessage);
                 }
+
+                orderBookResult.Data!.Asks = orderBookResult.Data.Asks.Take(request.Limit!.Value);
+                orderBookResult.Data!.Bids = orderBookResult.Data.Bids.Take(request.Limit!.Value);
 
                 return Result.Success(orderBookResult.Data!.ToDto());
             }

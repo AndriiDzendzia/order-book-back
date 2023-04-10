@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook", "OrderBook\OrderBook.csproj", "{58930430-6473-42F6-8242-4E0B989815E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook", "OrderBook\OrderBook.csproj", "{58930430-6473-42F6-8242-4E0B989815E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D4CCD80-3A09-422E-86A5-C88020FE8082}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.DAL", "OrderBook.DAL\OrderBook.DAL.csproj", "{4333C0A9-6134-4836-8F7B-87C114A570F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.DAL", "OrderBook.DAL\OrderBook.DAL.csproj", "{4333C0A9-6134-4836-8F7B-87C114A570F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderBook.Test", "OrderBook.Test\OrderBook.Test.csproj", "{E8214E5C-F095-4590-B126-9F0291C1C53C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderBook.Test", "OrderBook.Test\OrderBook.Test.csproj", "{E8214E5C-F095-4590-B126-9F0291C1C53C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
